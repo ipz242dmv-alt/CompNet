@@ -1,0 +1,27 @@
+# /etc/sysconfig/network
+NETWORKING=yes
+HOSTNAME=WS-83-3-01
+GATEWAY=193.83.3.1
+DNS1=193.83.3.1
+DNS2=208.67.222.222
+DNS3=208.67.220.220
+
+# /etc/sysconfig/network-scripts/ifcfg-enp0s17
+TYPE=Ethernet
+DEVICE=enp0s17
+NAME=enp0s17
+HWADDR=08:00:27:d2:bb:8a
+NM_CONTROLLED=no
+ONBOOT=yes
+BOOTPROTO=static
+IPADDR=193.83.3.2
+NETMASK=255.255.255.240
+NETWORK=193.83.3.0
+BROADCAST=193.83.3.15
+GATEWAY=193.83.3.1
+DEFROUTE=yes
+PEERDNS=yes
+DNS1=193.83.3.1
+DNS2=208.67.222.222
+DNS3=208.67.220.220
+# + systemctl disable NetworkManager; systemctl enable network

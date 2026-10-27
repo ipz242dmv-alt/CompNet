@@ -1,0 +1,20 @@
+# /etc/hostname
+WS-83-3-02
+
+# /etc/network/interfaces
+source /etc/network/interfaces.d/*
+auto lo
+iface lo inet loopback
+auto eth0
+iface eth0 inet static
+address 193.83.3.3
+netmask 255.255.255.240
+network 193.83.3.0
+broadcast 193.83.3.15
+gateway 193.83.3.1
+dns-nameservers 193.83.3.1 208.67.222.222 208.67.220.220
+
+# /etc/resolv.conf
+nameserver 193.83.3.1
+nameserver 208.67.222.222
+nameserver 208.67.220.220

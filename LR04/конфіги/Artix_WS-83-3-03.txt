@@ -1,0 +1,9 @@
+# /etc/hostname
+WS-83-3-03
+
+# /etc/dhcpcd.conf (додано в кінець)
+interface eth0
+static ip_address=193.83.3.4/28
+static routers=193.83.3.1
+static domain_name_servers=193.83.3.1 208.67.222.222 208.67.220.220
+# + dinitctl disable NetworkManager; dinitctl enable dhcpcd

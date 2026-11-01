@@ -1,0 +1,120 @@
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SW-83-3-2
+!
+!
+!
+no ip domain-lookup
+ip host R-83-3-1 193.83.3.1 
+ip host SW-83-3-1 193.83.3.61 
+ip host SW-83-3-2 193.83.3.62 
+ip host Serv-83-3-1 193.83.3.51 
+ip host Serv-83-3-2 193.83.3.52 
+ip host WS-83-3-1 193.83.3.11 
+ip host WS-83-3-2 193.83.3.12 
+ip host WS-83-3-3 193.83.3.13 
+ip host WS-83-3-4 193.83.3.14 
+ip host WS-83-3-5 193.83.3.15 
+ip host WS-83-3-6 193.83.3.16 
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ description to WS-83-3-4 (100Base-TX)
+ duplex half
+ speed 100
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+ description to WS-83-3-5 (100Base-TX)
+ duplex half
+ speed 100
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+ description to WS-83-3-6 (100Base-TX)
+ duplex half
+ speed 100
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+ description to Serv-83-3-2 (100Base-TX)
+ duplex full
+ speed 100
+!
+interface GigabitEthernet0/1
+ description to SW-83-3-1 Gi1/0/22 (1000Base-T)
+ duplex full
+ speed 100
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ description SW-83-3-2-MANAGEMENT
+ ip address 193.83.3.62 255.255.255.192
+!
+ip default-gateway 193.83.3.1
+!
+!
+!
+!
+line con 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+mac-address-table static 00d0.bc5e.c962 vlan 1 interface GigabitEthernet0/1
+mac-address-table static 0040.0bda.eaed vlan 1 interface FastEthernet0/24
+mac-address-table static 00d0.bcea.d793 vlan 1 interface GigabitEthernet0/1
+mac-address-table static 000c.cfb6.9501 vlan 1 interface GigabitEthernet0/1
+!
+!
+!
+end
+

@@ -1,0 +1,112 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R-83-3-1
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX1524N0WQ-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Loopback3
+ description Network F
+ ip address 198.83.3.1 255.255.255.252
+!
+interface Tunnel3
+ ip address 199.83.3.1 255.255.255.252
+ mtu 1476
+ tunnel source Loopback3
+ tunnel destination 197.83.3.2
+!
+!
+interface GigabitEthernet0/0
+ description Network A 10BaseT to SW-83-3-1
+ ip address 193.83.3.1 255.255.255.128
+ duplex full
+ speed 10
+!
+interface GigabitEthernet0/1
+ description Network C 100BaseTX to R-83-3-2
+ ip address 195.83.3.1 255.255.255.252
+ duplex full
+ speed 100
+!
+interface GigabitEthernet0/2
+ description Network D 100BaseTX to SW-83-3-3
+ ip address 196.83.3.1 255.255.255.240
+ duplex full
+ speed 100
+!
+interface GigabitEthernet0/0/0
+ description Network B 1000BaseFX to SW-83-3-2
+ ip address 194.83.3.1 255.255.255.192
+!
+interface Serial0/1/0
+ description Network E Serial DCE to R-83-3-5
+ bandwidth 192
+ ip address 197.83.3.1 255.255.255.252
+ clock rate 38400
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+

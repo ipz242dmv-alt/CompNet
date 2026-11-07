@@ -1,0 +1,104 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname R-83-3-1
+!
+!
+!
+enable secret 5 $1$mERr$Qg6DqrSSFGGexllIvYYj3.
+!
+!
+!
+clock timezone EET 2
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+username admin83 privilege 15 secret 5 $1$mERr$WREksW7o8fw.eOlByDti/.
+username tech83 secret 5 $1$mERr$FqyfoxHw/NJ/VKJ9xzZYW1
+!
+!
+license udi pid CISCO1941/K9 sn FTX1524C679-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 1
+ip ssh time-out 60
+no ip domain-lookup
+ip domain-name km83.ztu.edu.ua
+ip host R-83-3-1 193.83.3.1 
+ip host SW-83-3-1 193.83.3.61 
+ip host SW-83-3-2 193.83.3.62 
+ip host Serv-83-3-1 193.83.3.51 
+ip host Serv-83-3-2 193.83.3.52 
+ip host WS-83-3-1 193.83.3.11 
+ip host WS-83-3-2 193.83.3.12 
+ip host WS-83-3-3 193.83.3.13 
+ip host WS-83-3-4 193.83.3.14 
+ip host WS-83-3-5 193.83.3.15 
+ip host WS-83-3-6 193.83.3.16 
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ description LAN-83-3 to SW-83-3-1 Gi1/0/24
+ arp timeout 900
+ ip address 193.83.3.1 255.255.255.192
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd # Connection to router R-83-3-1. For legal users only #
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ logging synchronous
+ login local
+!
+!
+!
+end
+

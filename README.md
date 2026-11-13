@@ -22,6 +22,8 @@
 | [ЛР 11](LR11) | Налагодження та дослідження засобів віддаленого доступу | Packet Tracer: мережа 193.83.3.0/26 зі станціями адміністрування WS-MGMT-1/2; R-83-3-1 — SSHv1 з локальними користувачами (RSA 1024), SW-83-3-1 — Telnet з паролями на вхід, SW-83-3-2 — Telnet з локальними користувачами; Telnet і SSH на маршрутизаторі, Telnet / SSH Client; перехоплення Sniffer: Telnet — відкритий текст, SSH — зашифровані дані. |
 | [ЛР 12](LR12) | Принципи організації IP-підмереж версії 4 | Розрахунки підмереж (класова і безкласова адресація, 32-бітні сітки), агрегація до 11.102.0.0/17, аналіз вузлів A/B/C, помилка у вихідних даних (11.102.32.0.20); Packet Tracer: сегмент 134.126.16.0/20 — перша/остання адреси, широкомовна адреса, сусідня підмережа. |
 | [ЛР 13](LR13) | IP-адресація версії 6 в сучасних комп'ютерних мережах | Packet Tracer: R-83-3-1 (2911) і підмережі 2001:83:3:A…E::/64 — 1000BASE-T, 100BASE-TX, 1000BASE-LX (SFP), Serial; комутатори 3560 (SDM dual-ipv4-and-ipv6); Link-Local за EUI-64 з MAC і вручну (мережа E), глобальні адреси мережі C через `eui-64`; статичні маршрути ::/0, повна зв'язність; `show ipv6 interface brief`, `show ipv6 route`, `show ipv6 neighbors`. |
+| [ЛР 14](LR14) | Налагодження та дослідження протоколу DHCP на обладнанні Cisco | Packet Tracer: мережі A 193.83.3.0/27 і B 194.83.3.0/25 (комутатори 2960, точки доступу з SSID-A/B-83-3-X і WPA2), канал C 195.83.3.0/30; R-83-3-1 — DHCP-сервер (пули LAN_A, LINK_C), Server-PT — DHCP-сервер мережі B через `ip helper-address`, R-83-3-2 — DHCP-клієнт; цикл DORA і ретрансляція в режимі Simulation, виявлення й усунення конфлікту адрес. |
+| [ЛР 15](LR15) | Дослідження служби DNS та аналіз трафіку у Wireshark | Windows + Wireshark: домени knu.ua, mozilla.org, un.org; DNS 9.9.9.9 (Quad9) і 86.54.11.1 (DNS4EU); записи A, AAAA, SOA (nslookup, Resolve-DnsName), кеш DNS Client, порівняння резолверів і DNSSEC (біт DO, AD); захоплення `port 53 or port 853`, фільтри `dns.qry.type == 28` і `dns.flags.rcode != 0` (NXDOMAIN); ARP/MAC шлюзу, mDNS/LLMNR, DoT (TLS 1.3, порт 853) і DoH, зворотні запити PTR. |
 
 ## Структура
 
@@ -40,6 +42,8 @@ LR10/             проєкт Packet Tracer, running-config R-83-3-1, скрі�
 LR11/             проєкт Packet Tracer зі Sniffer, running-config R/SW, скріншоти
 LR12/             проєкт Packet Tracer, скрипт розрахунків, скріншоти
 LR13/             проєкт Packet Tracer (IPv6), running-config R-83-3-1, скрипт EUI-64, скріншоти
+LR14/             проєкт Packet Tracer (DHCP), running-config R-83-3-1, скрипт розрахунку адресації, скріншоти
+LR15/             скрипт команд lr15_commands.ps1, результати команд (results), захоплення Wireshark (.pcapng), скріншоти
 ```
 
 ## Інструменти

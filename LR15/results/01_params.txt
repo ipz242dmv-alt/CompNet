@@ -1,0 +1,89 @@
+﻿PS> hostname
+DESKTOP-P0SQJGN
+
+
+PS> ipconfig /all
+
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : DESKTOP-P0SQJGN
+   Primary Dns Suffix  . . . . . . . : 
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+
+Ethernet adapter Ethernet 5:
+
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : Realtek PCIe 2.5GbE Family Controller
+   Physical Address. . . . . . . . . : 2C-F0-5D-57-83-20
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::5c69:579a:7b93:ffc1%26(Preferred) 
+   IPv4 Address. . . . . . . . . . . : 192.168.1.209(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Lease Obtained. . . . . . . . . . : 12 ���⮯��� 2026 �. 20:33:59
+   Lease Expires . . . . . . . . . . : 12 ���⮯��� 2026 �. 23:33:58
+   Default Gateway . . . . . . . . . : 192.168.1.1
+   DHCP Server . . . . . . . . . . . : 192.168.1.1
+   DHCPv6 IAID . . . . . . . . . . . : 590147677
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2B-9D-75-4A-30-85-A9-8E-A7-81
+   DNS Servers . . . . . . . . . . . : 192.168.1.1
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Ethernet adapter Ethernet 6:
+
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : VirtualBox Host-Only Ethernet Adapter
+   Physical Address. . . . . . . . . : 0A-00-27-00-00-15
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::eea4:207c:2c03:aaa4%21(Preferred) 
+   IPv4 Address. . . . . . . . . . . : 192.168.56.1(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+   DHCPv6 IAID . . . . . . . . . . . : 470417447
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2B-9D-75-4A-30-85-A9-8E-A7-81
+   DNS Servers . . . . . . . . . . . : fec0:0:0:ffff::1%1
+                                       fec0:0:0:ffff::2%1
+                                       fec0:0:0:ffff::3%1
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Ethernet adapter ��⥢�� ������祭�� Bluetooth 2:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : Bluetooth Device (Personal Area Network) #2
+   Physical Address. . . . . . . . . : E0-D4-E8-19-20-57
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+
+PS> Get-DnsClientServerAddress -AddressFamily IPv4 | Format-Table -AutoSize
+
+InterfaceAlias               InterfaceIndex AddressFamily ServerAddresses
+--------------               -------------- ------------- ---------------
+Ethernet 5                               26 IPv4          {192.168.1.1}  
+Ethernet 6                               21 IPv4          {}             
+Сетевое подключение Blue...2             18 IPv4          {}             
+Loopback Pseudo-Interface 1               1 IPv4          {}             
+
+
+
+
+PS> Get-DnsClientDohServerAddress | Format-Table -AutoSize
+
+
+PS> Get-NetIPConfiguration | Where-Object { $_.IPv4DefaultGateway } | Format-List InterfaceAlias,IPv4Address,IPv4DefaultGateway,DNSServer
+
+
+InterfaceAlias     : Ethernet 5
+IPv4Address        : {192.168.1.209}
+IPv4DefaultGateway : {MSFT_NetRoute (InstanceID = ":8:8:8:9:55?@55;C?8;@B8;8;55;")}
+DNSServer          : {MSFT_DNSClientServerAddress (Name = "26", CreationClassName = "", SystemCreationClassName = "", SystemName = "23"), MSFT_DNSClientServerAddress (Name = "26", CreationClassName = 
+                     "", SystemCreationClassName = "", SystemName = "2")}
+
+
+
+
+

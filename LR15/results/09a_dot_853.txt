@@ -1,0 +1,18 @@
+﻿PS> openssl s_client -connect 9.9.9.9:853 -servername dns.quad9.net -brief
+openssl.exe : Connecting to 9.9.9.9
+At E:\univ\CompNet\LR15\lr15_commands.ps1:117 char:16
++ ...      ('Q' | & $ossl s_client -connect 9.9.9.9:853 -servername dns.qua ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Connecting to 9.9.9.9:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+CONNECTION ESTABLISHED
+Protocol version: TLSv1.3
+Ciphersuite: TLS_AES_256_GCM_SHA384
+Peer certificate: C=CH, ST=Zurich, L=Zürich, O=Quad9, CN=dns.quad9.net
+Hash used: SHA256
+Signature type: ecdsa_secp256r1_sha256
+Verification: OK
+Peer Temp Key: X25519, 253 bits
+DONE
+

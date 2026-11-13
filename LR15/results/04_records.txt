@@ -1,0 +1,416 @@
+﻿PS> nslookup (interactive): server 9.9.9.9 / set type=SOA / knu.ua
+Default Server:  UnKnown
+Address:  192.168.1.1
+
+> Default Server:  dns9.quad9.net
+Address:  9.9.9.9
+
+nslookup : Non-authoritative answer:
+At E:\univ\CompNet\LR15\lr15_commands.ps1:65 char:54
++ ...        ("server $s`nset type=SOA`n$d`nexit`n" | nslookup 2>&1 | Out-S ...
++                                                     ~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+> > Server:  dns9.quad9.net
+Address:  9.9.9.9
+
+knu.ua
+	primary name server = ns.univ.kiev.ua
+	responsible mail addr = hostmaster.univ.kiev.ua
+	serial  = 2026110601
+	refresh = 28800 (8 hours)
+	retry   = 3600 (1 hour)
+	expire  = 2592000 (30 days)
+	default TTL = 86400 (1 day)
+> 
+
+PS> Resolve-DnsName -Name knu.ua -Type A -Server 9.9.9.9
+
+
+Name       : knu.ua
+Type       : A
+TTL        : 1500
+DataLength : 4
+Section    : Answer
+IPAddress  : 91.202.128.77
+
+
+
+
+PS> Resolve-DnsName -Name knu.ua -Type AAAA -Server 9.9.9.9
+
+
+Name              : knu.ua
+Type              : SOA
+TTL               : 3587
+PrimaryServer     : ns.univ.kiev.ua
+NameAdministrator : hostmaster.univ.kiev.ua
+SerialNumber      : 2026110601
+
+
+
+
+PS> Resolve-DnsName -Name knu.ua -Type SOA -Server 9.9.9.9
+
+
+Name              : knu.ua
+Type              : SOA
+TTL               : 43200
+PrimaryServer     : ns.univ.kiev.ua
+NameAdministrator : hostmaster.univ.kiev.ua
+SerialNumber      : 2026110601
+
+
+
+
+PS> nslookup (interactive): server 86.54.11.1 / set type=SOA / knu.ua
+Default Server:  UnKnown
+Address:  192.168.1.1
+
+> Default Server:  protective.joindns4.eu
+Address:  86.54.11.1
+
+nslookup : Non-authoritative answer:
+At E:\univ\CompNet\LR15\lr15_commands.ps1:65 char:54
++ ...        ("server $s`nset type=SOA`n$d`nexit`n" | nslookup 2>&1 | Out-S ...
++                                                     ~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+> > Server:  protective.joindns4.eu
+Address:  86.54.11.1
+
+knu.ua
+	primary name server = ns.univ.kiev.ua
+	responsible mail addr = hostmaster.univ.kiev.ua
+	serial  = 2026110601
+	refresh = 28800 (8 hours)
+	retry   = 3600 (1 hour)
+	expire  = 2592000 (30 days)
+	default TTL = 86400 (1 day)
+> 
+
+PS> Resolve-DnsName -Name knu.ua -Type A -Server 86.54.11.1
+
+
+Name       : knu.ua
+Type       : A
+TTL        : 3587
+DataLength : 4
+Section    : Answer
+IPAddress  : 91.202.128.77
+
+
+
+
+PS> Resolve-DnsName -Name knu.ua -Type AAAA -Server 86.54.11.1
+
+
+Name              : knu.ua
+Type              : SOA
+TTL               : 86387
+PrimaryServer     : ns.univ.kiev.ua
+NameAdministrator : hostmaster.univ.kiev.ua
+SerialNumber      : 2026110601
+
+
+
+
+PS> Resolve-DnsName -Name knu.ua -Type SOA -Server 86.54.11.1
+
+
+Name              : knu.ua
+Type              : SOA
+TTL               : 86387
+PrimaryServer     : ns.univ.kiev.ua
+NameAdministrator : hostmaster.univ.kiev.ua
+SerialNumber      : 2026110601
+
+
+
+
+PS> nslookup (interactive): server 9.9.9.9 / set type=SOA / mozilla.org
+Default Server:  UnKnown
+Address:  192.168.1.1
+
+> Default Server:  dns9.quad9.net
+Address:  9.9.9.9
+
+nslookup : Non-authoritative answer:
+At E:\univ\CompNet\LR15\lr15_commands.ps1:65 char:54
++ ...        ("server $s`nset type=SOA`n$d`nexit`n" | nslookup 2>&1 | Out-S ...
++                                                     ~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+> > Server:  dns9.quad9.net
+Address:  9.9.9.9
+
+mozilla.org
+	primary name server = ns5-65.akam.net
+	responsible mail addr = hostmaster.mozilla.com
+	serial  = 2024020848
+	refresh = 180 (3 mins)
+	retry   = 180 (3 mins)
+	expire  = 1209600 (14 days)
+	default TTL = 60 (1 min)
+> 
+
+PS> Resolve-DnsName -Name mozilla.org -Type A -Server 9.9.9.9
+
+
+Name       : mozilla.org
+Type       : A
+TTL        : 151
+DataLength : 4
+Section    : Answer
+IPAddress  : 35.190.14.201
+
+
+
+
+PS> Resolve-DnsName -Name mozilla.org -Type AAAA -Server 9.9.9.9
+
+
+Name       : mozilla.org
+Type       : AAAA
+TTL        : 1460
+DataLength : 16
+Section    : Answer
+IPAddress  : 2600:1901:0:c197::
+
+
+
+
+PS> Resolve-DnsName -Name mozilla.org -Type SOA -Server 9.9.9.9
+
+
+Name              : mozilla.org
+Type              : SOA
+TTL               : 3600
+PrimaryServer     : ns5-65.akam.net
+NameAdministrator : hostmaster.mozilla.com
+SerialNumber      : 2024020848
+
+
+
+
+PS> nslookup (interactive): server 86.54.11.1 / set type=SOA / mozilla.org
+Default Server:  UnKnown
+Address:  192.168.1.1
+
+> Default Server:  protective.joindns4.eu
+Address:  86.54.11.1
+
+nslookup : Non-authoritative answer:
+At E:\univ\CompNet\LR15\lr15_commands.ps1:65 char:54
++ ...        ("server $s`nset type=SOA`n$d`nexit`n" | nslookup 2>&1 | Out-S ...
++                                                     ~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+> > Server:  protective.joindns4.eu
+Address:  86.54.11.1
+
+mozilla.org
+	primary name server = ns5-65.akam.net
+	responsible mail addr = hostmaster.mozilla.com
+	serial  = 2024020848
+	refresh = 180 (3 mins)
+	retry   = 180 (3 mins)
+	expire  = 1209600 (14 days)
+	default TTL = 60 (1 min)
+> 
+
+PS> Resolve-DnsName -Name mozilla.org -Type A -Server 86.54.11.1
+
+
+Name       : mozilla.org
+Type       : A
+TTL        : 418
+DataLength : 4
+Section    : Answer
+IPAddress  : 35.190.14.201
+
+
+
+
+PS> Resolve-DnsName -Name mozilla.org -Type AAAA -Server 86.54.11.1
+
+
+Name       : mozilla.org
+Type       : AAAA
+TTL        : 152
+DataLength : 16
+Section    : Answer
+IPAddress  : 2600:1901:0:c197::
+
+
+
+
+PS> Resolve-DnsName -Name mozilla.org -Type SOA -Server 86.54.11.1
+
+
+Name              : mozilla.org
+Type              : SOA
+TTL               : 3600
+PrimaryServer     : ns5-65.akam.net
+NameAdministrator : hostmaster.mozilla.com
+SerialNumber      : 2024020848
+
+
+
+
+PS> nslookup (interactive): server 9.9.9.9 / set type=SOA / un.org
+Default Server:  UnKnown
+Address:  192.168.1.1
+
+> Default Server:  dns9.quad9.net
+Address:  9.9.9.9
+
+nslookup : Non-authoritative answer:
+At E:\univ\CompNet\LR15\lr15_commands.ps1:65 char:54
++ ...        ("server $s`nset type=SOA`n$d`nexit`n" | nslookup 2>&1 | Out-S ...
++                                                     ~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+> > Server:  dns9.quad9.net
+Address:  9.9.9.9
+
+un.org
+	primary name server = ns1.un.org
+	responsible mail addr = root.un.org
+	serial  = 2026111000
+	refresh = 1200 (20 mins)
+	retry   = 3600 (1 hour)
+	expire  = 1209600 (14 days)
+	default TTL = 300 (5 mins)
+> 
+
+PS> Resolve-DnsName -Name un.org -Type A -Server 9.9.9.9
+
+
+Name       : un.org
+Type       : A
+TTL        : 298
+DataLength : 4
+Section    : Answer
+IPAddress  : 157.150.185.49
+
+Name       : un.org
+Type       : A
+TTL        : 298
+DataLength : 4
+Section    : Answer
+IPAddress  : 157.150.185.92
+
+
+
+
+PS> Resolve-DnsName -Name un.org -Type AAAA -Server 9.9.9.9
+
+
+Name              : un.org
+Type              : SOA
+TTL               : 299
+PrimaryServer     : ns1.un.org
+NameAdministrator : root.un.org
+SerialNumber      : 2026111000
+
+
+
+
+PS> Resolve-DnsName -Name un.org -Type SOA -Server 9.9.9.9
+
+
+Name              : un.org
+Type              : SOA
+TTL               : 299
+PrimaryServer     : ns1.un.org
+NameAdministrator : root.un.org
+SerialNumber      : 2026111000
+
+
+
+
+PS> nslookup (interactive): server 86.54.11.1 / set type=SOA / un.org
+Default Server:  UnKnown
+Address:  192.168.1.1
+
+> Default Server:  protective.joindns4.eu
+Address:  86.54.11.1
+
+nslookup : Non-authoritative answer:
+At E:\univ\CompNet\LR15\lr15_commands.ps1:65 char:54
++ ...        ("server $s`nset type=SOA`n$d`nexit`n" | nslookup 2>&1 | Out-S ...
++                                                     ~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+> > Server:  protective.joindns4.eu
+Address:  86.54.11.1
+
+un.org
+	primary name server = ns1.un.org
+	responsible mail addr = root.un.org
+	serial  = 2026111000
+	refresh = 1200 (20 mins)
+	retry   = 3600 (1 hour)
+	expire  = 1209600 (14 days)
+	default TTL = 300 (5 mins)
+
+> 
+
+PS> Resolve-DnsName -Name un.org -Type A -Server 86.54.11.1
+
+
+Name       : un.org
+Type       : A
+TTL        : 299
+DataLength : 4
+Section    : Answer
+IPAddress  : 157.150.185.49
+
+Name       : un.org
+Type       : A
+TTL        : 299
+DataLength : 4
+Section    : Answer
+IPAddress  : 157.150.185.92
+
+
+
+
+PS> Resolve-DnsName -Name un.org -Type AAAA -Server 86.54.11.1
+
+
+Name              : un.org
+Type              : SOA
+TTL               : 299
+PrimaryServer     : ns1.un.org
+NameAdministrator : root.un.org
+SerialNumber      : 2026111000
+
+
+
+
+PS> Resolve-DnsName -Name un.org -Type SOA -Server 86.54.11.1
+
+
+Name              : un.org
+Type              : SOA
+TTL               : 299
+PrimaryServer     : ns1.un.org
+NameAdministrator : root.un.org
+SerialNumber      : 2026111000
+
+
+
+

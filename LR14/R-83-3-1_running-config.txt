@@ -1,0 +1,101 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R-83-3-1
+!
+!
+!
+!
+ip dhcp excluded-address 193.83.3.1
+ip dhcp excluded-address 193.83.3.15 193.83.3.30
+ip dhcp excluded-address 195.83.3.1
+!
+ip dhcp pool LAN_A
+ network 193.83.3.0 255.255.255.224
+ default-router 193.83.3.1
+ dns-server 193.83.3.25
+ domain-name km83.ztu.edu.ua
+ip dhcp pool LINK_C
+ network 195.83.3.0 255.255.255.252
+ default-router 195.83.3.1
+ dns-server 193.83.3.25
+ domain-name km83.ztu.edu.ua
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX15241LJ7-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+ip domain-name km83.ztu.edu.ua
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ description LAN_A
+ ip address 193.83.3.1 255.255.255.224
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description LAN_B
+ ip address 194.83.3.1 255.255.255.128
+ ip helper-address 193.83.3.26
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ description LINK_C_to_R-83-3-2
+ ip address 195.83.3.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+

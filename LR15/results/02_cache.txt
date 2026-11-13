@@ -1,0 +1,104 @@
+﻿Cache entries before flush: 50
+
+PS> ipconfig /displaydns | Select-Object -First 60
+
+Windows IP Configuration
+
+    table.univer.ua
+    ----------------------------------------
+    Record Name . . . . . : table.univer.ua
+    Record Type . . . . . : 28
+    Time To Live  . . . . : 598777
+    Data Length . . . . . : 16
+    Section . . . . . . . : Answer
+    AAAA Record . . . . . : ::1
+
+
+    table.univer.ua
+    ----------------------------------------
+    Record Name . . . . . : table.univer.ua
+    Record Type . . . . . : 1
+    Time To Live  . . . . : 598777
+    Data Length . . . . . : 4
+    Section . . . . . . . : Answer
+    A (Host) Record . . . : 127.0.0.1
+
+
+    www.wireshark.org
+    ----------------------------------------
+    Record Name . . . . . : www.wireshark.org
+    Record Type . . . . . : 1
+    Time To Live  . . . . : 167
+    Data Length . . . . . : 4
+    Section . . . . . . . : Answer
+    A (Host) Record . . . : 104.26.11.240
+
+
+    Record Name . . . . . : www.wireshark.org
+    Record Type . . . . . : 1
+    Time To Live  . . . . : 167
+    Data Length . . . . . : 4
+    Section . . . . . . . : Answer
+    A (Host) Record . . . : 172.67.75.39
+
+
+    Record Name . . . . . : www.wireshark.org
+    Record Type . . . . . : 1
+    Time To Live  . . . . : 167
+    Data Length . . . . . : 4
+    Section . . . . . . . : Answer
+    A (Host) Record . . . : 104.26.10.240
+
+
+    40.8.5.195.in-addr.arpa
+    ----------------------------------------
+    Record Name . . . . . : 40.8.5.195.in-addr.arpa
+    Record Type . . . . . : 12
+    Time To Live  . . . . : 3377
+    Data Length . . . . . : 8
+    Section . . . . . . . : Answer
+    PTR Record  . . . . . : 40-8-5-195.ip.ukrtel.net
+
+
+    1.0.0.127.in-addr.arpa
+
+
+PS> Get-DnsClientCache | Select-Object Entry, RecordType, TimeToLive -First 20 | Format-Table -AutoSize
+
+Entry                   RecordType TimeToLive
+-----                   ---------- ----------
+table.univer.ua                        598777
+table.univer.ua                        598777
+www.wireshark.org                         167
+www.wireshark.org                         167
+www.wireshark.org                         167
+40.8.5.195.in-addr.arpa                  3377
+1.0.0.127.in-addr.arpa                 598777
+1.0.0.127.in-addr.arpa                 598777
+1.0.0.127.in-addr.arpa                 598777
+1.0.0.127.in-addr.arpa                 598777
+1.0.0.127.in-addr.arpa                 598777
+1.0.0.127.in-addr.arpa                 598777
+1.0.0.127.in-addr.arpa                 598777
+1.0.0.127.in-addr.arpa                 598777
+1.0.0.127.in-addr.arpa                 598777
+lils-kv.ua                             598777
+lils-kv.ua                             598777
+lils-pl-kv.ua                          598777
+lils-pl-kv.ua                          598777
+hawkinslanguagelab1.com                598777
+
+
+
+
+PS> Clear-DnsClientCache
+
+
+PS> ipconfig /flushdns
+
+Windows IP Configuration
+
+Successfully flushed the DNS Resolver Cache.
+
+
+Cache entries after flush: 39

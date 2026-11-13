@@ -1,0 +1,202 @@
+﻿PS> ping -4 -n 2 knu.ua
+
+Pinging knu.ua [91.202.128.77] with 32 bytes of data:
+Reply from 91.202.128.77: bytes=32 time=4ms TTL=60
+Reply from 91.202.128.77: bytes=32 time=3ms TTL=60
+
+Ping statistics for 91.202.128.77:
+    Packets: Sent = 2, Received = 2, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 3ms, Maximum = 4ms, Average = 3ms
+
+
+PS> ping -6 -n 2 knu.ua
+Ping request could not find host knu.ua. Please check the name and try again.
+
+
+PS> nslookup knu.ua 9.9.9.9
+Server:  dns9.quad9.net
+Address:  9.9.9.9
+
+Name:    knu.ua
+Address:  91.202.128.77
+
+
+
+PS> Resolve-DnsName -Name knu.ua -Type A -Server 9.9.9.9   (time: 37 ms)
+
+Name   Type  TTL IPAddress     NameHost
+----   ----  --- ---------     --------
+knu.ua    A 1513 91.202.128.77         
+
+
+
+PS> Resolve-DnsName -Name knu.ua -Type AAAA -Server 9.9.9.9   (time: 1025 ms)
+
+Name   Type TTL IPAddress NameHost
+----   ---- --- --------- --------
+knu.ua  SOA 230                   
+
+
+
+PS> nslookup knu.ua 86.54.11.1
+Server:  protective.joindns4.eu
+Address:  86.54.11.1
+
+Name:    knu.ua
+Address:  91.202.128.77
+
+
+
+PS> Resolve-DnsName -Name knu.ua -Type A -Server 86.54.11.1   (time: 35 ms)
+
+Name   Type  TTL IPAddress     NameHost
+----   ----  --- ---------     --------
+knu.ua    A 3600 91.202.128.77         
+
+
+
+PS> Resolve-DnsName -Name knu.ua -Type AAAA -Server 86.54.11.1   (time: 35 ms)
+
+Name   Type   TTL IPAddress NameHost
+----   ----   --- --------- --------
+knu.ua  SOA 86400                   
+
+
+
+PS> ping -4 -n 2 mozilla.org
+
+Pinging mozilla.org [35.190.14.201] with 32 bytes of data:
+Reply from 35.190.14.201: bytes=32 time=30ms TTL=110
+Reply from 35.190.14.201: bytes=32 time=30ms TTL=110
+
+Ping statistics for 35.190.14.201:
+    Packets: Sent = 2, Received = 2, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 30ms, Maximum = 30ms, Average = 30ms
+
+
+PS> ping -6 -n 2 mozilla.org
+Ping request could not find host mozilla.org. Please check the name and try again.
+
+
+PS> nslookup mozilla.org 9.9.9.9
+Server:  dns9.quad9.net
+Address:  9.9.9.9
+
+Name:    mozilla.org
+Addresses:  2600:1901:0:c197::
+	  35.190.14.201
+
+
+
+PS> Resolve-DnsName -Name mozilla.org -Type A -Server 9.9.9.9   (time: 29 ms)
+
+Name        Type TTL IPAddress     NameHost
+----        ---- --- ---------     --------
+mozilla.org    A 162 35.190.14.201         
+
+
+
+PS> Resolve-DnsName -Name mozilla.org -Type AAAA -Server 9.9.9.9   (time: 29 ms)
+
+Name        Type  TTL IPAddress          NameHost
+----        ----  --- ---------          --------
+mozilla.org AAAA 1471 2600:1901:0:c197::         
+
+
+
+PS> nslookup mozilla.org 86.54.11.1
+Server:  protective.joindns4.eu
+Address:  86.54.11.1
+
+Name:    mozilla.org
+Addresses:  2600:1901:0:c197::
+	  35.190.14.201
+
+
+
+PS> Resolve-DnsName -Name mozilla.org -Type A -Server 86.54.11.1   (time: 35 ms)
+
+Name        Type TTL IPAddress     NameHost
+----        ---- --- ---------     --------
+mozilla.org    A 429 35.190.14.201         
+
+
+
+PS> Resolve-DnsName -Name mozilla.org -Type AAAA -Server 86.54.11.1   (time: 71 ms)
+
+Name        Type TTL IPAddress          NameHost
+----        ---- --- ---------          --------
+mozilla.org AAAA 163 2600:1901:0:c197::         
+
+
+
+PS> ping -4 -n 2 un.org
+
+Pinging un.org [157.150.185.92] with 32 bytes of data:
+Request timed out.
+Request timed out.
+
+Ping statistics for 157.150.185.92:
+    Packets: Sent = 2, Received = 0, Lost = 2 (100% loss),
+
+
+PS> ping -6 -n 2 un.org
+Ping request could not find host un.org. Please check the name and try again.
+
+
+PS> nslookup un.org 9.9.9.9
+Server:  dns9.quad9.net
+Address:  9.9.9.9
+
+Name:    un.org
+Addresses:  157.150.185.49
+	  157.150.185.92
+
+
+
+PS> Resolve-DnsName -Name un.org -Type A -Server 9.9.9.9   (time: 148 ms)
+
+Name   Type TTL IPAddress      NameHost
+----   ---- --- ---------      --------
+un.org    A 300 157.150.185.49         
+un.org    A 300 157.150.185.92         
+
+
+
+PS> Resolve-DnsName -Name un.org -Type AAAA -Server 9.9.9.9   (time: 148 ms)
+
+Name   Type TTL IPAddress NameHost
+----   ---- --- --------- --------
+un.org  SOA 300                   
+
+
+
+PS> nslookup un.org 86.54.11.1
+Server:  protective.joindns4.eu
+Address:  86.54.11.1
+
+Name:    un.org
+Addresses:  157.150.185.49
+	  157.150.185.92
+
+
+
+PS> Resolve-DnsName -Name un.org -Type A -Server 86.54.11.1   (time: 35 ms)
+
+Name   Type TTL IPAddress      NameHost
+----   ---- --- ---------      --------
+un.org    A 300 157.150.185.92         
+un.org    A 300 157.150.185.49         
+
+
+
+PS> Resolve-DnsName -Name un.org -Type AAAA -Server 86.54.11.1   (time: 35 ms)
+
+Name   Type TTL IPAddress NameHost
+----   ---- --- --------- --------
+un.org  SOA 300                   
+
+
+

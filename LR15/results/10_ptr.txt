@@ -1,0 +1,26 @@
+﻿Address for reverse lookup: 35.190.14.201
+PS> nslookup -type=PTR 35.190.14.201 9.9.9.9
+Server:  dns9.quad9.net
+Address:  9.9.9.9
+
+201.14.190.35.in-addr.arpa	name = 201.14.190.35.bc.googleusercontent.com
+
+
+PS> Resolve-DnsName -Name 35.190.14.201 -Type PTR -Server 9.9.9.9
+
+Name                           Type   TTL   Section    NameHost                                                                                                                                         
+----                           ----   ---   -------    --------                                                                                                                                         
+201.14.190.35.in-addr.arpa     PTR    120   Answer     201.14.190.35.bc.googleusercontent.com                                                                                                           
+
+
+
+
+PS> Resolve-DnsName -Name 157.150.185.49 -Type PTR -Server 9.9.9.9
+
+Name                           Type   TTL   Section    NameHost                                                                                                                                         
+----                           ----   ---   -------    --------                                                                                                                                         
+49.185.150.157.in-addr.arpa    PTR    300   Answer     www.un.org                                                                                                                                       
+
+
+
+

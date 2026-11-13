@@ -1,0 +1,10 @@
+﻿PS> Resolve-DnsName -Name lr15-test-83-3.local -ErrorAction SilentlyContinue
+
+
+PS> Resolve-DnsName -Name lr15host833 -LlmnrNetbiosOnly -ErrorAction SilentlyContinue
+
+
+PS> ping -n 1 lr15host833
+Ping request could not find host lr15host833. Please check the name and try again.
+
+

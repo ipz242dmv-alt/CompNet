@@ -1,0 +1,6 @@
+﻿PS> curl.exe -s -o NUL -w "HTTP %{http_code}, %{time_total} s" --doh-url https://dns.quad9.net/dns-query https://www.mozilla.org/
+HTTP 000, 0.091719 s
+
+PS> curl.exe -s -o NUL -w "HTTP %{http_code}, %{time_total} s" --doh-url https://dns.quad9.net/dns-query https://www.un.org/
+HTTP 000, 0.089645 s
+

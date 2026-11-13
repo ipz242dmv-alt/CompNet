@@ -1,0 +1,48 @@
+﻿Default gateway: 192.168.1.1
+PS> ping -n 3 192.168.1.1
+
+Pinging 192.168.1.1 with 32 bytes of data:
+Reply from 192.168.1.1: bytes=32 time<1ms TTL=64
+Reply from 192.168.1.1: bytes=32 time<1ms TTL=64
+Reply from 192.168.1.1: bytes=32 time<1ms TTL=64
+
+Ping statistics for 192.168.1.1:
+    Packets: Sent = 3, Received = 3, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+
+PS> ping -n 3 9.9.9.9
+
+Pinging 9.9.9.9 with 32 bytes of data:
+Reply from 9.9.9.9: bytes=32 time=29ms TTL=59
+Reply from 9.9.9.9: bytes=32 time=30ms TTL=59
+Reply from 9.9.9.9: bytes=32 time=27ms TTL=59
+
+Ping statistics for 9.9.9.9:
+    Packets: Sent = 3, Received = 3, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 27ms, Maximum = 30ms, Average = 28ms
+
+
+PS> arp -a
+
+Interface: 192.168.56.1 --- 0x15
+  Internet Address      Physical Address      Type
+  192.168.56.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.2             01-00-5e-00-00-02     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+
+Interface: 192.168.1.209 --- 0x1a
+  Internet Address      Physical Address      Type
+  192.168.1.1           30-16-9d-73-e8-73     dynamic   
+  192.168.1.255         ff-ff-ff-ff-ff-ff     static    
+  224.0.0.2             01-00-5e-00-00-02     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+

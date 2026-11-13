@@ -1,0 +1,222 @@
+﻿9.9.9.9  knu.ua  time, ms: 31, 26, 26, 28, 27  average: 27.6
+9.9.9.9  mozilla.org  time, ms: 25, 26, 28, 27, 28  average: 26.8
+9.9.9.9  un.org  time, ms: 28, 28, 27, 28, 26  average: 27.4
+PS> Resolve-DnsName -Name knu.ua -Type A -Server 9.9.9.9 -DnssecOk
+
+Name   Type   TTL    Section IPAddress     TypeCovered Signer
+----   ----   ---    ------- ---------     ----------- ------
+knu.ua    A  1498     Answer 91.202.128.77                   
+.       OPT 32768 Additional                                 
+
+
+
+PS> Resolve-DnsName -Name mozilla.org -Type A -Server 9.9.9.9 -DnssecOk
+
+Name        Type   TTL    Section IPAddress     TypeCovered Signer
+----        ----   ---    ------- ---------     ----------- ------
+mozilla.org    A   150     Answer 35.190.14.201                   
+.            OPT 32768 Additional                                 
+
+
+
+PS> Resolve-DnsName -Name un.org -Type A -Server 9.9.9.9 -DnssecOk
+
+Name   Type   TTL    Section IPAddress      TypeCovered Signer
+----   ----   ---    ------- ---------      ----------- ------
+un.org    A   297     Answer 157.150.185.49                   
+un.org    A   297     Answer 157.150.185.92                   
+.       OPT 32768 Additional                                  
+
+
+
+86.54.11.1  knu.ua  time, ms: 35, 35, 34, 35, 35  average: 34.8
+86.54.11.1  mozilla.org  time, ms: 35, 35, 38, 35, 35  average: 35.6
+86.54.11.1  un.org  time, ms: 36, 35, 35, 35, 35  average: 35.2
+PS> Resolve-DnsName -Name knu.ua -Type A -Server 86.54.11.1 -DnssecOk
+
+Name   Type   TTL    Section IPAddress     TypeCovered Signer
+----   ----   ---    ------- ---------     ----------- ------
+knu.ua    A  3585     Answer 91.202.128.77                   
+.       OPT 32768 Additional                                 
+
+
+
+PS> Resolve-DnsName -Name mozilla.org -Type A -Server 86.54.11.1 -DnssecOk
+
+Name        Type   TTL    Section IPAddress     TypeCovered Signer
+----        ----   ---    ------- ---------     ----------- ------
+mozilla.org    A   416     Answer 35.190.14.201                   
+.            OPT 32768 Additional                                 
+
+
+
+PS> Resolve-DnsName -Name un.org -Type A -Server 86.54.11.1 -DnssecOk
+
+Name   Type   TTL    Section IPAddress      TypeCovered Signer
+----   ----   ---    ------- ---------      ----------- ------
+un.org    A   297     Answer 157.150.185.92                   
+un.org    A   297     Answer 157.150.185.49                   
+.       OPT 32768 Additional                                  
+
+
+
+PS> nslookup -debug un.org 9.9.9.9
+nslookup : Non-authoritative answer:
+At E:\univ\CompNet\LR15\lr15_commands.ps1:92 char:6
++     (nslookup -debug un.org $dns1 2>&1 | Out-String -Width 200)
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+------------
+Got answer:
+    HEADER:
+	opcode = QUERY, id = 1, rcode = NOERROR
+	header flags:  response, want recursion, recursion avail.
+	questions = 1,  answers = 1,  authority records = 0,  additional = 0
+
+    QUESTIONS:
+	9.9.9.9.in-addr.arpa, type = PTR, class = IN
+    ANSWERS:
+    ->  9.9.9.9.in-addr.arpa
+	name = dns9.quad9.net
+	ttl = 32729 (9 hours 5 mins 29 secs)
+
+------------
+Server:  dns9.quad9.net
+Address:  9.9.9.9
+
+------------
+Got answer:
+    HEADER:
+	opcode = QUERY, id = 2, rcode = NOERROR
+	header flags:  response, want recursion, recursion avail.
+	questions = 1,  answers = 2,  authority records = 0,  additional = 0
+
+    QUESTIONS:
+	un.org, type = A, class = IN
+    ANSWERS:
+    ->  un.org
+	internet address = 157.150.185.49
+	ttl = 296 (4 mins 56 secs)
+    ->  un.org
+	internet address = 157.150.185.92
+	ttl = 296 (4 mins 56 secs)
+
+------------
+------------
+Got answer:
+    HEADER:
+	opcode = QUERY, id = 3, rcode = NOERROR
+	header flags:  response, want recursion, recursion avail.
+	questions = 1,  answers = 0,  authority records = 1,  additional = 0
+
+    QUESTIONS:
+	un.org, type = AAAA, class = IN
+    AUTHORITY RECORDS:
+    ->  un.org
+	ttl = 296 (4 mins 56 secs)
+	primary name server = ns1.un.org
+	responsible mail addr = root.un.org
+	serial  = 2026111000
+	refresh = 1200 (20 mins)
+	retry   = 3600 (1 hour)
+	expire  = 1209600 (14 days)
+	default TTL = 300 (5 mins)
+
+------------
+Name:    un.org
+Addresses:  157.150.185.49
+	  157.150.185.92
+
+
+PS> nslookup -debug un.org 86.54.11.1
+nslookup : Non-authoritative answer:
+At E:\univ\CompNet\LR15\lr15_commands.ps1:94 char:6
++     (nslookup -debug un.org $dns2 2>&1 | Out-String -Width 200)
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Non-authoritative answer::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+------------
+Got answer:
+    HEADER:
+	opcode = QUERY, id = 1, rcode = NOERROR
+	header flags:  response, want recursion, recursion avail.
+	questions = 1,  answers = 1,  authority records = 0,  additional = 0
+
+    QUESTIONS:
+	1.11.54.86.in-addr.arpa, type = PTR, class = IN
+    ANSWERS:
+    ->  1.11.54.86.in-addr.arpa
+	name = protective.joindns4.eu
+	ttl = 2364 (39 mins 24 secs)
+
+------------
+Server:  protective.joindns4.eu
+Address:  86.54.11.1
+
+------------
+Got answer:
+    HEADER:
+	opcode = QUERY, id = 2, rcode = NOERROR
+	header flags:  response, want recursion, recursion avail.
+	questions = 1,  answers = 2,  authority records = 0,  additional = 0
+
+    QUESTIONS:
+	un.org, type = A, class = IN
+    ANSWERS:
+    ->  un.org
+	internet address = 157.150.185.49
+	ttl = 297 (4 mins 57 secs)
+    ->  un.org
+	internet address = 157.150.185.92
+	ttl = 297 (4 mins 57 secs)
+
+------------
+------------
+Got answer:
+    HEADER:
+	opcode = QUERY, id = 3, rcode = NOERROR
+	header flags:  response, want recursion, recursion avail.
+	questions = 1,  answers = 0,  authority records = 1,  additional = 0
+
+    QUESTIONS:
+	un.org, type = AAAA, class = IN
+    AUTHORITY RECORDS:
+    ->  un.org
+	ttl = 297 (4 mins 57 secs)
+	primary name server = ns1.un.org
+	responsible mail addr = root.un.org
+	serial  = 2026111000
+	refresh = 1200 (20 mins)
+	retry   = 3600 (1 hour)
+	expire  = 1209600 (14 days)
+	default TTL = 300 (5 mins)
+
+------------
+Name:    un.org
+Addresses:  157.150.185.49
+	  157.150.185.92
+
+
+PS> Resolve-DnsName -Name lr15-nonexistent-83-3.knu.ua -Server 9.9.9.9
+Resolve-DnsName : lr15-nonexistent-83-3.knu.ua : DNS name does not exist
+At E:\univ\CompNet\LR15\lr15_commands.ps1:97 char:6
++     (Resolve-DnsName -Name 'lr15-nonexistent-83-3.knu.ua' -Server $dn ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (lr15-nonexistent-83-3.knu.ua:String) [Resolve-DnsName], Win32Excep    tion
+    + FullyQualifiedErrorId : DNS_ERROR_RCODE_NAME_ERROR,Microsoft.DnsClient.Commands.ResolveDnsName
+ 
+
+PS> Resolve-DnsName -Name lr15-nonexistent-83-3.knu.ua -Server 86.54.11.1
+Resolve-DnsName : lr15-nonexistent-83-3.knu.ua : DNS name does not exist
+At E:\univ\CompNet\LR15\lr15_commands.ps1:99 char:6
++     (Resolve-DnsName -Name 'lr15-nonexistent-83-3.knu.ua' -Server $dn ...
++      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (lr15-nonexistent-83-3.knu.ua:String) [Resolve-DnsName], Win32Excep    tion
+    + FullyQualifiedErrorId : DNS_ERROR_RCODE_NAME_ERROR,Microsoft.DnsClient.Commands.ResolveDnsName
+ 
+
